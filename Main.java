@@ -19,79 +19,80 @@ public class Main {
         System.out.println("This is my program which will excecute the same \n random generated list and test the different sorting method which exists \n if you want a very long list i would suggest that \n you won't try Bubble sort, Insertion Sort or Selection Sort \n Since they are really slow on sorting big arrays.");
         System.out.println("Do you want to test all algorithms? (y/n)");
         String all = scan.nextLine();
-        if (all == "n") {
-            while(true) {
+        if (all.equals("n")) {
+            bubble = insertion = selection = shell = merge = mergeSelection = quick = "u";
+            while(bubble.equals("u")) {
                 System.out.println("Do you want to use Bubble Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     bubble = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(0);
                     }
                     break;
                 }
             }
-            while(true) {
+            while(insertion.equals("u")) {
                 System.out.println("Do you want to use Insertion Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     insertion = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(1);
                     }
                     break;
                 }
             }
-            while(true) {
+            while(selection.equals("u")) {
                 System.out.println("Do you want to use Selection Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     selection = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(2);
                     }
                     break;
                 }
             }
-            while(true) {
+            while(shell.equals("u")) {
                 System.out.println("Do you want to use Shell Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     shell = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(3);
                     }
                     break;
                 }
             }
-            while(true) {
+            while(merge.equals("u")) {
                 System.out.println("Do you want to use Merge Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     merge = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(4);
                     }
                     break;
                 }
             }
-            while(true) {
+            while(mergeSelection.equals("u")) {
                 System.out.println("Do you want to use MergeSelection Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     mergeSelection = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(5);
                     }
                     break;
                 }
             }
-            while(true) {
+            while(quick.equals("u")) {
                 System.out.println("Do you want to use Quick Sort? (y/n)");
                 line = scan.nextLine();
-                if (line == "y" || line == "n") {
+                if (line.equals("y") || line.equals("n")) {
                     quick = line;
-                    if (line == "n") {
+                    if (line.equals("n")) {
                         skip.add(6);
                     }
                     break;
@@ -104,13 +105,13 @@ public class Main {
         Integer[] testBubble, testInsertion, testSelection, testShell, testMerge, testMergeSelection, testQuick;
         testBubble = testInsertion = testSelection = testShell = testMerge = testMergeSelection = testQuick= null;
 
-        if (bubble == "y")              {testBubble            = new Integer[lengde];}
-        if (insertion == "y")      {testInsertion         = new Integer[lengde];}
-        if (selection == "y")      {testSelection         = new Integer[lengde];}
-        if (shell == "y")          {testShell             = new Integer[lengde];}
-        if (merge == "y")          {testMerge             = new Integer[lengde];}
-        if (mergeSelection == "y") {testMergeSelection    = new Integer[lengde];}
-        if (quick == "y")          {testQuick             = new Integer[lengde];}
+        if (bubble.equals("y"))              {testBubble            = new Integer[lengde];}
+        if (insertion.equals("y"))      {testInsertion         = new Integer[lengde];}
+        if (selection.equals("y"))      {testSelection         = new Integer[lengde];}
+        if (shell.equals("y"))          {testShell             = new Integer[lengde];}
+        if (merge.equals("y"))          {testMerge             = new Integer[lengde];}
+        if (mergeSelection.equals("y")) {testMergeSelection    = new Integer[lengde];}
+        if (quick.equals("y"))          {testQuick             = new Integer[lengde];}
         
 
         StopWatch stopwatch = new StopWatch();
@@ -120,13 +121,13 @@ public class Main {
         int count = 1;
         for (int i = 0; i < lengde; i++) {
             int num =  random.nextInt(lengde * 5);
-            if (bubble == "y")              {testBubble[i]           = num;}
-            if (insertion == "y")      {testInsertion[i]        = num;}
-            if (selection == "y")      {testSelection[i]        = num;}
-            if (shell == "y")          {testShell[i]            = num;}
-            if (merge == "y")          {testMerge[i]            = num;}
-            if (mergeSelection == "y") {testMergeSelection[i]   = num;}
-            if (quick == "y")          {testQuick[i]            = num;}
+            if (bubble.equals("y"))              {testBubble[i]           = num;}
+            if (insertion.equals("y"))      {testInsertion[i]        = num;}
+            if (selection.equals("y"))      {testSelection[i]        = num;}
+            if (shell.equals("y"))          {testShell[i]            = num;}
+            if (merge.equals("y"))          {testMerge[i]            = num;}
+            if (mergeSelection.equals("y")) {testMergeSelection[i]   = num;}
+            if (quick.equals("y"))          {testQuick[i]            = num;}
             
             if (i % 10000 == 0) {
                 System.out.println(count * 10 + "% to finish");
@@ -162,6 +163,10 @@ public class Main {
         );
         
         boolean s;
+
+        
+        System.out.println("skip inneholder: "+ skip.size() + " verdier");
+      
 
         for (int i = 0; i < testSets.size(); i++) {
             s = false;
