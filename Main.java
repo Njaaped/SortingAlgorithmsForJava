@@ -129,7 +129,7 @@ public class Main {
             if (mergeSelection.equals("y")) {testMergeSelection[i]   = num;}
             if (quick.equals("y"))          {testQuick[i]            = num;}
             
-            if (i % 10000 == 0) {
+            if (i % lengde / 10 == 0) {
                 System.out.println(count * 10 + "% to finish");
                 count++;
             }
