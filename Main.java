@@ -112,6 +112,8 @@ public class Main {
         if (merge.equals("y"))          {testMerge             = new Integer[lengde];}
         if (mergeSelection.equals("y")) {testMergeSelection    = new Integer[lengde];}
         if (quick.equals("y"))          {testQuick             = new Integer[lengde];}
+
+        Integer[] searchtest = new Integer[lengde];
         
 
         StopWatch stopwatch = new StopWatch();
@@ -128,7 +130,7 @@ public class Main {
             if (merge.equals("y"))          {testMerge[i]            = num;}
             if (mergeSelection.equals("y")) {testMergeSelection[i]   = num;}
             if (quick.equals("y"))          {testQuick[i]            = num;}
-            
+            searchtest[i] = num;
             if (i % lengde / 10 == 0) {
                 System.out.println(count * 10 + "% to finish");
                 count++;
@@ -193,9 +195,46 @@ public class Main {
                 stopwatch.stop();
                 elapsedTime = stopwatch.getElapsedTime();
                 System.out.println(label + " finished ✅ time usage: " + (elapsedTime / 1_000_000) + " ms   Sorted = " + isSorted(set));
+                stopwatch.reset();
             }
  
         }
+
+        int searchNum;
+        boolean numIsThere;
+       
+
+        System.out.println("Starting the different searching method's");
+        while (true) {
+            String cont = "nothing";
+            System.out.print("Write your number: ");
+            searchNum = (int) scan.nextInt();
+            System.out.println("\n starting the search ⏳");
+            stopwatch.start();
+            numIsThere = NormalSearch.search(searchtest, searchNum);
+            stopwatch.stop();
+            elapsedTime = stopwatch.getElapsedTime();
+            System.out.println("normal search done ✅ time usage in ms: " + (elapsedTime / 1_000_000) + " is number in list (t/f): " + numIsThere);
+            stopwatch.reset();
+            stopwatch.start();
+            numIsThere = BinarySearch.search(searchtest, searchNum);
+            stopwatch.stop();
+            elapsedTime = stopwatch.getElapsedTime();
+            System.out.println("binary search done ✅ time usage in ms: " + (elapsedTime / 1_000_000) + " is number in list (t/f): " + numIsThere);
+            stopwatch.reset();
+            while (true) {
+                System.out.print("another number? (y/n): ");
+                cont = scan.nextLine();
+                if (cont.equals("y") || cont.equals("n")) {
+                    break;
+                }
+            }
+            if (cont.equals("n")) {
+                break;
+            }
+
+        }
+
     }
 
     private static boolean isSorted(Comparable[] a) {
