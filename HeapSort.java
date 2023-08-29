@@ -8,7 +8,7 @@ public class HeapSort {
     private static int M = 15;
 
     public static void sort(Comparable[] a) {
-        int N = a.length;
+        int N = a.length - 1;
         for (int k = N / 2; k >= 1; k--) {
             sink(a, k, N);
         }
@@ -32,7 +32,7 @@ public class HeapSort {
     private static void sink(Comparable[] a, int k, int N) {
         while (2*k <= N) {
             int j = 2*k;
-            if (j < (N - 1) && less(a[j], a[j+1])) {
+            if (j < N && less(a[j], a[j+1])) {
                 j++;
             }
             if (!less(a[k], a[j])) {
@@ -52,19 +52,22 @@ public class HeapSort {
     }
 
     public static boolean isSorted(Comparable[] a) {
-        for (int i = 1; i < a.length; i++) {
+        for (int i = 2; i < a.length; i++) {
             if (less(a[i], a[i-1])) {
+                System.out.println("wrong at index: "+ i + "  " + a[i] + " " + a[i - 1]);
                 return false;
             } 
         } return true;
     }
 
+
+
     public static void main(String[] args) {
         StopWatch stopwatch = new StopWatch();
         Random random = new Random();
-        Integer[] arr = new Integer[1000000];
+        Integer[] arr = new Integer[1000001];
         stopwatch.start();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 1; i < 1000001; i++) {
             arr[i] = random.nextInt(400000);
         }
         stopwatch.stop();
